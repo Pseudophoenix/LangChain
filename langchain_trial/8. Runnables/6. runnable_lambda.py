@@ -1,0 +1,2 @@
+# RunnableLambda-allows use to apply custom Python functions within an AI pipeline
+# acts as a middleware between different AI components, enabling preprocessing, transformation, API calls, filtering, and post-processing in a LangChain Workflow.
