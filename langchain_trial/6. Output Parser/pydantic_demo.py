@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 class Student(BaseModel):
-    name:str
-new_student={'name':45}
+    name:str='Alok'
+new_student={}
 stude=Student(**new_student)
-print(type(stude))
+print(stude)
