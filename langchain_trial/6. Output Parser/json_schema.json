@@ -1,0 +1,12 @@
+{
+    "title":"review",
+    "description":"schema about reviews",
+    "type":"object",
+    "properties":{
+        "summary":"string",
+        "sentiment":"string",
+        "age":"integer",
+        "name":"string"
+    },
+    "required":["summary","sentiment"]
+}

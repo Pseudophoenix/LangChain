@@ -18,17 +18,59 @@ model=ChatVertexAI(model_name="gemini-1.5-pro")
     
 #     cons:Annotated[Optional[list[str]],"Write down all the cons inside a list"]
 #     name:Annotated[str,"Write the name of the reviewer"]
-class Review(BaseModel):
-    summary:str=Field(description="A brief summary of the review")
-    # sentiment:str=Field(description="Return sentiment of the review either positive, negative or neutral")
-    sentiment:Literal["positive","negative"]=Field(description="Return sentiment of the review either positive, negative or neutral")
-    pros:Optional[list[str]]=Field(default=None,description="Write down all the pros inside a list")
-    cons:Optional[list[str]]=Field(default=None,description="Write down all the cons inside a list")
-    key_themes:list[str]=Field(description="Write down all the key themes discussed in the review in a list")
-    name:Optional[str]=Field(default=None,description="Write the name of the reviewer")
+# class Review(BaseModel):
+#     summary:str=Field(description="A brief summary of the review")
+#     # sentiment:str=Field(description="Return sentiment of the review either positive, negative or neutral")
+#     sentiment:Literal["positive","negative"]=Field(description="Return sentiment of the review either positive, negative or neutral")
+#     pros:Optional[list[str]]=Field(default=None,description="Write down all the pros inside a list")
+#     cons:Optional[list[str]]=Field(default=None,description="Write down all the cons inside a list")
+#     key_themes:list[str]=Field(description="Write down all the key themes discussed in the review in a list")
+#     name:Optional[str]=Field(default=None,description="Write the name of the reviewer")
+
+json_schema={
+    "title": "Review",
+    "type": "object",
+    "properties": {
+        "summary": {
+            "type": "string",
+            "description": "A brief summary of the review"
+        },
+        "pros": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Write down all the pros inside a list"
+        },
+        "cons": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Write down all the cons inside a list"
+        },
+        "name":{
+            "type":"string",
+            "description":"Write the name of the reviewer"
+        },
+        "key_themes":{
+            "type":"array",
+            "items":{
+                "type":"string"
+            },
+            "description":"Write down all the key themes discussed in the review in a list"
+        },
+        "sentiment":{
+            "type":"string",
+            "enum":["pos","neg"],
+            "description":"Return sentiment of the review either positive, negative or neutral"
+        }
+    },
+    "required":["sentiment","summary","key_themes"]
+}
 
     
-struct_model=model.with_structured_output(Review)
+struct_model=model.with_structured_output(json_schema)
 
 # result=struct_model.invoke("""
 #             The hardware is average, but the software feels bloated. There are too many pre-installed apps that I can't remove. Also, the UI looks outdated compared to other brands. Hoping for a software update to fix this.
@@ -51,7 +93,7 @@ Expensive compared to competitors
 # print(result['sentiment'])
 print(type(result))
 print(result)
-print(result.model_dump_json())
-dict_res=dict(result)
-print(dict_res['sentiment'])
-print(dict_res['summary'])
+# print(result.model_dump_json())
+# dict_res=dict(result)
+# print(dict_res['sentiment'])
+# print(dict_res['summary'])
