@@ -1,6 +1,8 @@
 from langchain_google_vertexai import ChatVertexAI
 from dotenv import load_dotenv
-from typing import TypedDict, Annotated,Optional
+# from typing import TypedDict, Annotated,Optional
+from pydantic import BaseModel, Field
+from typing import Optional, Literal
 load_dotenv()
 model=ChatVertexAI(model_name="gemini-1.5-pro")
 
@@ -8,14 +10,23 @@ model=ChatVertexAI(model_name="gemini-1.5-pro")
 # class Review(TypedDict):
 #     summary:Annotated[str,"A brief summary of the review"]
 #     sentiment:Annotated[str,"Return sentiment of the review either negative, positive or neutral"]
-class Review(TypedDict):
-    key_themes:Annotated[list[str],"Write down all the key themes discussed in the review in a list"]
-    summary:Annotated[str,"A brief summary of the review"]
-    sentiment:Annotated[str,"Return sentiment of the review either positive, negative or neutral"]
-    pros:Annotated[Optional[list[str]],"Write down all the cons inside a list"]
+# class Review(TypedDict):
+#     key_themes:Annotated[list[str],"Write down all the key themes discussed in the review in a list"]
+#     summary:Annotated[str,"A brief summary of the review"]
+#     sentiment:Annotated[str,"Return sentiment of the review either positive, negative or neutral"]
+#     pros:Annotated[Optional[list[str]],"Write down all the cons inside a list"]
     
-    cons:Annotated[Optional[list[str]],"Write down all the cons inside a list"]
-    name:Annotated[str,"Write the name of the reviewer"]
+#     cons:Annotated[Optional[list[str]],"Write down all the cons inside a list"]
+#     name:Annotated[str,"Write the name of the reviewer"]
+class Review(BaseModel):
+    summary:str=Field(description="A brief summary of the review")
+    # sentiment:str=Field(description="Return sentiment of the review either positive, negative or neutral")
+    sentiment:Literal["positive","negative"]=Field(description="Return sentiment of the review either positive, negative or neutral")
+    pros:Optional[list[str]]=Field(default=None,description="Write down all the cons inside a list")
+    cons:Optional[list[str]]=Field(default=None,description="Write down all the cons inside a list")
+    key_themes:list[str]=Field(description="Write down all the key themes discussed in the review in a list")
+    name:str=Field(description="Write the name of the reviewer")
+
     
 struct_model=model.with_structured_output(Review)
 
@@ -36,7 +47,11 @@ Bulky and heavy-not great for one-handed use
 Bloatware still exists in One UI
 Expensive compared to competitors
                            """)
-print(result['summary'])
-print(result['sentiment'])
+# print(result['summary'])
+# print(result['sentiment'])
 print(type(result))
 print(result)
+print(result.model_dump_json())
+dict_res=dict(result)
+print(dict_res['sentiment'])
+print(dict_res['summary'])
