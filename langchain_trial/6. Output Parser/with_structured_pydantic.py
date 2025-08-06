@@ -25,7 +25,7 @@ class Review(BaseModel):
     pros:Optional[list[str]]=Field(default=None,description="Write down all the cons inside a list")
     cons:Optional[list[str]]=Field(default=None,description="Write down all the cons inside a list")
     key_themes:list[str]=Field(description="Write down all the key themes discussed in the review in a list")
-    name:str=Field(description="Write the name of the reviewer")
+    name:Optional[str]=Field(default=None,description="Write the name of the reviewer")
 
     
 struct_model=model.with_structured_output(Review)
