@@ -9,8 +9,9 @@ prompt=PromptTemplate(
     template="Generate 5 interesting facts about {topic}",
     input_variables=["topic"]
 )
-model=VertexAI(model_name="gemini-2.5-pro")
+model=VertexAI(model_name="gemini-2.5-flash")
 parser=StrOutputParser()
 chain=prompt|model|parser
 
-chain.invoke({'topic':"Nile River egypt"})
+res=chain.invoke({'topic':"Nile River egypt"})
+print(res)
