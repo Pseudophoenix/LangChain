@@ -15,3 +15,4 @@ chain=prompt|model|parser
 
 res=chain.invoke({'topic':"Nile River egypt"})
 print(res)
+chain.get_graph().print_ascii()
