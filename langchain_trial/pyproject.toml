@@ -32,6 +32,7 @@ dependencies = [
     "pydantic[email] (>=2.11.7,<3.0.0)",
     "grandalf (>=0.8,<0.9)",
     "pypdf>=5.9.0",
+    "langchain-experimental>=0.3.4",
 ]
 
 [tool.poetry]
