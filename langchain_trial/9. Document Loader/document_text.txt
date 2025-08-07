@@ -1,0 +1,34 @@
+Here’s an example of a text file (`indian_cricket_history.txt`) containing a brief history of Indian cricket:
+
+---
+
+**History of Indian Cricket**
+
+Cricket was introduced to India by the British in the 18th century, with the first recorded match played in 1721. The sport gained popularity among local communities, leading to the formation of the first Indian cricket club, the Oriental Cricket Club, in 1848.
+
+**Early Years and Test Status**  
+India played its first official Test match in 1932 against England at Lord’s, becoming the sixth team to gain Test status. The team was led by CK Nayudu, one of India’s earliest cricket legends. However, India struggled in its early years, winning only its first Test match in 1952 against England at Madras (now Chennai).
+
+**Post-Independence Era**  
+After India gained independence in 1947, cricket became a unifying force. Players like Vijay Hazare, Polly Umrigar, and Vinoo Mankad emerged as key figures. In 1952, India recorded its first Test series win against Pakistan.
+
+**The Spin Quartet and Rise in the 1970s**  
+The 1960s and 70s saw India develop a formidable spin attack with legends like Bishan Singh Bedi, Erapalli Prasanna, BS Chandrasekhar, and Srinivas Venkataraghavan. India earned its first Test series wins in England (1971) and the West Indies (1971) under the captaincy of Ajit Wadekar.
+
+**1983 World Cup – A Turning Point**  
+India’s biggest breakthrough came in 1983 when Kapil Dev led the team to an unexpected World Cup victory, defeating the mighty West Indies in the final at Lord’s. This triumph transformed cricket into a national obsession and paved the way for India’s rise as a cricketing powerhouse.
+
+**The Sachin Tendulkar Era**  
+The 1990s and 2000s were dominated by Sachin Tendulkar, widely regarded as one of the greatest batsmen of all time. Alongside stars like Rahul Dravid, Sourav Ganguly, and Anil Kumble, India became a dominant force in world cricket. Ganguly’s aggressive captaincy in the early 2000s marked the beginning of a new, fearless Indian team.
+
+**2007 T20 World Cup & 2011 ODI World Cup**  
+Under MS Dhoni’s leadership, India won the inaugural T20 World Cup in 2007 and the ODI World Cup in 2011, ending a 28-year wait. Dhoni’s calm leadership and the rise of Virat Kohli cemented India’s place as a cricketing superpower.
+
+**Modern Dominance**  
+In recent years, India has produced world-class players like Virat Kohli, Rohit Sharma, and Jasprit Bumrah. The team has consistently ranked among the top in all formats, with notable successes in Test cricket (including multiple series wins in Australia) and strong performances in ICC tournaments.
+
+Indian cricket continues to inspire millions, with the Indian Premier League (IPL) revolutionizing T20 cricket and nurturing young talent. The future looks bright as India remains a dominant force in the sport.
+
+---
+
+You can save this text in a `.txt` file and use it for reference. Let me know if you'd like any modifications or additional details!
