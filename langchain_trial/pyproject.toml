@@ -33,6 +33,7 @@ dependencies = [
     "grandalf (>=0.8,<0.9)",
     "pypdf>=5.9.0",
     "langchain-experimental>=0.3.4",
+    "chromadb>=1.0.15",
 ]
 
 [tool.poetry]

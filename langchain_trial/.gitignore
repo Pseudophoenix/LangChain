@@ -1,2 +1,4 @@
 .env
 */trash/
+*.sqlite3
+*.bin
