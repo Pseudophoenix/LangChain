@@ -4,7 +4,7 @@
 
 ## Basic LLM workflow
 
-## Prompt Chaining Workflwo
+## Prompt Chaining Workflow
 
 ## Parallel Workflow
 
