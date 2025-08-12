@@ -47,7 +47,7 @@ if st.sidebar.button('New Chat'):
     reset_chat()
 
 st.sidebar.header('My Conversations')
-# displau all the chats in the sidebar use the chat_threads and fetch all of the thread_ids 
+# displau all the chats in the sidebar use the chat_threads and fetch all of the thread_ids in reverse order[::-1]
 for thread_id in st.session_state['chat_threads'][::-1]:
     # create a separate clickable button for each thread_id
     if st.sidebar.button(str(thread_id)):
