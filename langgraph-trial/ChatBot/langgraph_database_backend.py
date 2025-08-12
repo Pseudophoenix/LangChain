@@ -20,6 +20,12 @@ def chat_node(state:ChatState):
     response=llm.invoke(messages)
     return {"messages":[response]}
 
+thread_list=set()
+def chat_retriever():
+    for checkpoint in checkpointer.list(None):
+        thread_list.add(checkpoint.config['configurable']['thread_id'])
+    return list(thread_list)
+
 # checkpointer=InMemorySaver()
 checkpointer=SqliteSaver(conn=conn)
 graph=StateGraph(ChatState)
@@ -36,3 +42,5 @@ chatbot=graph.compile(checkpointer=checkpointer)
 # },config={"configurable":{"thread_id":"2"}})
 
 # print(response)
+# print(chat_retriever())
+# print(checkpointer.list(None))

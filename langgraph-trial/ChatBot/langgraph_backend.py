@@ -19,6 +19,7 @@ def chat_node(state:ChatState):
     response=llm.invoke(messages)
     return {"messages":[response]}
 
+
 checkpointer=InMemorySaver()
 graph=StateGraph(ChatState)
 
