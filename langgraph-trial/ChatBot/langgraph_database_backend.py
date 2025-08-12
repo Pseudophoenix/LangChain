@@ -4,11 +4,12 @@ from typing import TypedDict, Annotated
 from langgraph.graph import StateGraph, START, END
 from langchain_core.messages  import BaseMessage
 from langgraph.graph.message import add_messages
-from langgraph.checkpoint.memory import InMemorySaver
+# from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.checkpoint.sqlite import SqliteSaver
+import sqlite3 
 load_dotenv()
 llm=ChatVertexAI(model_name="gemini-2.5-pro")
-
+sqlite3.connect(database="chatbot.db",check_same_thread=False)
 
 class ChatState(TypedDict):
     messages:Annotated[list[BaseMessage],add_messages]
@@ -19,7 +20,8 @@ def chat_node(state:ChatState):
     response=llm.invoke(messages)
     return {"messages":[response]}
 
-checkpointer=InMemorySaver()
+# checkpointer=InMemorySaver()
+checkpointer=SqliteSaver()
 graph=StateGraph(ChatState)
 
 graph.add_node("chat_node",chat_node)
